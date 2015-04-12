@@ -38,7 +38,8 @@
 	       android:layout_weight="1"
 	       android:textSize="14dp"
 	       android:onClick="handleButtonClick"
-	       android:text="@string/button_greyscale" />
+	       android:text="@string/button_greyscale"
+	       android:enabled="false" />
 	
 	    <Button
 	       android:id="@+id/resetimage_button"
@@ -47,7 +48,8 @@
 	       android:layout_weight="1"
 	       android:textSize="14dp"
 	       android:onClick="handleButtonClick"
-	       android:text="@string/button_reset" />
+	       android:text="@string/button_reset"
+	       android:enabled="false" />
     </LinearLayout>
     
     <ImageView

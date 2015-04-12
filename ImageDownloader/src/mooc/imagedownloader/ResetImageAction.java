@@ -9,6 +9,7 @@ public class ResetImageAction implements ButtonAction {
 	@Override
 	public void execute(ImageDownloaderContext context) {
 		Toast.makeText(context.getActivity(), TAG, Toast.LENGTH_SHORT).show();
+		context.resetImage();
 	}
 
 }
