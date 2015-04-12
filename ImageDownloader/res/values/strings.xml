@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Image Downloader</string>
+    <string name="image_url">http://www.android.com/new/images/versions/jelly-bean/android.jpg</string>
+    <string name="action_settings">Settings</string>
+	<string name="button_download">Download Image</string>
+	<string name="button_greyscale">Grayscale Image</string>
+	<string name="button_reset">Reset</string>
+</resources>

@@ -1,0 +1,14 @@
+package mooc.imagedownloader;
+
+import android.widget.Toast;
+
+public class GrayscaleImageAction implements ButtonAction{
+	private final String TAG =
+			GrayscaleImageAction.class.getSimpleName();
+	
+	@Override
+	public void execute(ImageDownloaderContext context) {
+		Toast.makeText(context.getActivity(), TAG, Toast.LENGTH_SHORT).show();
+	}
+
+}
