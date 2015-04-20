@@ -34,6 +34,11 @@ public class GrayscaleImageAction implements ButtonAction{
 	    return mTaskRunning;
 	  }
 	
+	@Override
+	public void updateContext(ImageDownloaderContext context) {
+		mImageDownloadContext = context;
+	}
+	
 	private class GrayscaleImageTask extends AsyncTask<Uri, Integer, Uri> {
 	     protected Uri doInBackground(Uri... urls) {
 	    	 if (isCancelled()) return null;

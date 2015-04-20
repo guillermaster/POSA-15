@@ -59,7 +59,7 @@ public class MainActivity extends Activity implements DownloaderTaskFragment.Dow
 	
 	public ImageDownloaderContext getThisContextReference(){
 		ImageDownloaderContext context = new ImageDownloaderContext(
-				mUrlEditText,
+				(EditText)findViewById(R.id.mUrlEditText),
 				(ImageView)findViewById(R.id.mImageView),				
 				(Button)findViewById(R.id.grayscale_button),
 				(Button)findViewById(R.id.resetimage_button),

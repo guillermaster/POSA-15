@@ -31,6 +31,10 @@ public class DownloaderTaskFragment extends Fragment {
 	    // current progress and results.
 	    mCallbacks = (DownloaderTaskCallbacks) activity;
 	    mDownloaderContext = ((MainActivity)activity).getThisContextReference();
+	    
+	    if(mTaskAction != null){
+	    	mTaskAction.updateContext(mDownloaderContext);
+	    }
 	  }
 	
 	@Override

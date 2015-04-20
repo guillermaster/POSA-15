@@ -19,6 +19,11 @@ public class ResetImageAction implements ButtonAction {
 		mTaskRunning = false;
 	}
 	
+	@Override
+	public void updateContext(ImageDownloaderContext context) {
+		
+	}
+	
 	public boolean isRunning() {
 	    return mTaskRunning;
 	  }

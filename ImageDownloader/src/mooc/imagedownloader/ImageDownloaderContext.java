@@ -21,10 +21,10 @@ public class ImageDownloaderContext {
 	private final String TAG =
 			ImageDownloaderContext.class.getSimpleName();
 	//UI references
-	private final WeakReference<EditText> mUrlEditText;	
-	private final WeakReference<ImageView> mImageView;
-	private final WeakReference<Button> mGrayscaleButton;
-	private final WeakReference<Button> mResetButton;
+	private WeakReference<EditText> mUrlEditText;	
+	private WeakReference<ImageView> mImageView;
+	private WeakReference<Button> mGrayscaleButton;
+	private WeakReference<Button> mResetButton;
 	private final WeakReference<Activity> mActivity;
 	//other variables
 	private Uri mDownloadedImageUri;
@@ -46,12 +46,20 @@ public class ImageDownloaderContext {
 	}
 	
 	public Uri getImageUrl(){
+		if(mUrlEditText==null || mUrlEditText.get()==null){
+			return Uri.parse(
+					((EditText)mActivity.get().findViewById(R.id.mUrlEditText)).getText().toString());
+		}
 		return Uri.parse(mUrlEditText.get().getText().toString());
 	}
 	
 	public void resetImage(){
 		setEnableSecondaryActionButtons(false);
-		mImageView.get().setImageBitmap(null);
+		if(mImageView== null || mImageView.get()==null){
+			((ImageView)mActivity.get().findViewById(R.id.mImageView)).setImageBitmap(null);
+		}else{
+			mImageView.get().setImageBitmap(null);
+		}
 	}
 	
 	public void setDownloadedImage(Uri imageUri){
@@ -97,12 +105,24 @@ public class ImageDownloaderContext {
             Toast.makeText(mActivity.get(), R.string.msg_invalid_image, Toast.LENGTH_LONG).show();
         else {
             // Display the image on the user's screen.
-            mImageView.get().setImageBitmap(image);
+        	if(mImageView == null || mImageView.get()== null){
+        		((ImageView)mActivity.get().findViewById(R.id.mImageView)).setImageBitmap(image);
+        	}else{
+        		mImageView.get().setImageBitmap(image);
+        	}
         }
 	}
 	
 	private void setEnableSecondaryActionButtons(boolean enable){
-		mGrayscaleButton.get().setEnabled(true);
-		mResetButton.get().setEnabled(true);
+		if(mGrayscaleButton == null || mGrayscaleButton.get() == null){
+			((Button)mActivity.get().findViewById(R.id.grayscale_button)).setEnabled(enable);
+		}else{
+			mGrayscaleButton.get().setEnabled(enable);
+		}
+		if(mResetButton == null || mResetButton.get()==null){
+			((Button)mActivity.get().findViewById(R.id.resetimage_button)).setEnabled(enable);
+		}else{
+			mResetButton.get().setEnabled(enable);
+		}
 	}
 }
